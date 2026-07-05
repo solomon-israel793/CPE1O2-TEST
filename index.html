@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCPE 102 - Introduction to Computing CBT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="state-card">
+        <h1>FCPE 102 - Introduction to Computing</h1>
+        <p>Total Questions: 102 | Exam Mode: 50 Shuffled Questions | Time Limit: 30 Minutes</p>
+        <button class="control-btn start-btn" onclick="startExam()">Start Examination</button>
+    </div>
+
+    <!-- Exam Header -->
+    <header id="exam-header" class="hidden">
+        <div class="header-top">
+            <h1>FCPE 102 - Introduction to Computing</h1>
+            <div class="timer-badge">
+                <span>TIME LEFT:</span>
+                <span id="timer-string">30:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Exam Workspace -->
+    <div class="container hidden" id="exam-workspace">
+        <main class="quiz-card">
+            <span class="category-tag" id="question-topic">Topic Loading...</span>
+            <div class="question-text" id="question-text">Loading assessment item...</div>
+            <div class="options-container" id="options-container"></div>
+
+            <div class="controls">
+                <button class="control-btn prev-btn" id="prev-btn" onclick="changeQuestion(-1)">Previous</button>
+                <button class="control-btn next-btn" id="next-btn" onclick="changeQuestion(1)">Next</button>
+                <button class="control-btn submit-btn" onclick="triggerManualSubmit()">Submit Exam</button>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <h3>Question Navigation</h3>
+            <div class="matrix-grid" id="matrix-grid"></div>
+        </aside>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results-workspace" class="container hidden">
+        <div class="results-box">
+            <div class="score-banner">
+                <h2>Examination Complete</h2>
+                <div class="score-val"><span id="score-out">0</span> / 50</div>
+                <p>Review your answers and explanations below.</p>
+                <button class="control-btn retake-btn" onclick="returnToStart()">Retake New Shuffled Exam</button>
+            </div>
+            <div id="corrections-container" class="results-box"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
